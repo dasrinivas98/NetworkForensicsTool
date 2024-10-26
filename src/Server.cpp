@@ -1,66 +1,29 @@
 #include "Server.h"
-#include "Logger.h"
+#include "PacketAnalyzer.h"
+#include "PacketGenerator.h"
 #include <iostream>
+#include <string>
+#include <thread>
+#include <chrono>
+#include <ctime>
 
-Server::Server(int port) : port_(port), running_(false) {}
+Server::Server() : packetGenerator(), packetAnalyzer() {}
 
-Server::~Server() {
-    stop();
-}
+void Server::receivePackets() {
+    for (int i = 0; i < 100; ++i) { // Simulate 100 packet receptions
+        // Generate a packet
+        std::string packetData = packetGenerator.generatePacket();
+        int packetSize = static_cast<int>(packetData.size());
+        
+        // Get current timestamp
+        std::time_t now = std::time(nullptr);
+        std::string timestamp = std::ctime(&now);
+        timestamp.pop_back(); // Remove the newline character
 
-void Server::start() {
-    WSADATA wsaData;
-    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-        logError("WSAStartup failed in Server.");
-        return;
-    }
+        // Analyze the received packet
+        packetAnalyzer.analyzePacket(packetData, packetSize, timestamp);
 
-    serverSocket_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-    if (serverSocket_ == INVALID_SOCKET) {
-        logError("Socket creation failed in Server.");
-        WSACleanup();
-        return;
-    }
-
-    sockaddr_in serverAddr;
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(port_);
-    serverAddr.sin_addr.s_addr = INADDR_ANY;
-
-    if (bind(serverSocket_, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
-        logError("Bind failed in Server.");
-        closesocket(serverSocket_);
-        WSACleanup();
-        return;
-    }
-
-    running_ = true;
-    listenerThread_ = std::thread(&Server::listenForPackets, this);
-}
-
-void Server::stop() {
-    running_ = false;
-    if (listenerThread_.joinable()) {
-        listenerThread_.join();
-    }
-    closesocket(serverSocket_);
-    WSACleanup();
-}
-
-void Server::listenForPackets() {
-    char buffer[512];
-    sockaddr_in clientAddr;
-    int clientAddrSize = sizeof(clientAddr);
-
-    while (running_) {
-        int bytesReceived = recvfrom(serverSocket_, buffer, sizeof(buffer) - 1, 0, (sockaddr*)&clientAddr, &clientAddrSize);
-        if (bytesReceived == SOCKET_ERROR) {
-            logError("Receive failed in Server.");
-            continue;
-        }
-
-        buffer[bytesReceived] = '\0';
-        std::string packetData(buffer);
-        analyzer_.analyzePacket(packetData);
+        // Delay for 0.5 seconds before generating the next packet
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }

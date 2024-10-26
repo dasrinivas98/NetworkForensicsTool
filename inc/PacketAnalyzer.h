@@ -1,16 +1,13 @@
-// PacketAnalyzer.h
-#ifndef PACKETANALYZER_H
-#define PACKETANALYZER_H
+#ifndef PACKET_ANALYZER_H
+#define PACKET_ANALYZER_H
 
 #include <string>
 
 class PacketAnalyzer {
 public:
     PacketAnalyzer();
-    void analyzePacket(const std::string& packetData);
-
-private:
+    void analyzePacket(const std::string& packetData, int size, const std::string& timestamp);
     bool isMalicious(const std::string& packetData);
 };
 
-#endif // PACKETANALYZER_H
+#endif // PACKET_ANALYZER_H

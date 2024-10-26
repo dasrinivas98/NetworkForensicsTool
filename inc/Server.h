@@ -1,26 +1,17 @@
-// Server.h
 #ifndef SERVER_H
 #define SERVER_H
 
+#include "PacketGenerator.h"
 #include "PacketAnalyzer.h"
-#include <thread>
-#include <WinSock2.h>
 
 class Server {
 public:
-    Server(int port);
-    ~Server();
-
-    void start();
-    void stop();
+    Server();
+    void receivePackets();
 
 private:
-    void listenForPackets();
-    int port_;
-    bool running_;
-    SOCKET serverSocket_;
-    std::thread listenerThread_;
-    PacketAnalyzer analyzer_;
+    PacketGenerator packetGenerator;
+    PacketAnalyzer packetAnalyzer;
 };
 
 #endif // SERVER_H
