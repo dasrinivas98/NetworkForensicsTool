@@ -9,8 +9,9 @@ NetworkForensicsTool/
 │   ├── PacketAnalyzer.cpp
 │   ├── Server.cpp
 │   └── main.cpp
-└── inc/
-    ├── PacketGenerator.h
-    ├── PacketAnalyzer.h
-    ├── Logger.h
-    └── Server.h
+│── inc/
+│    ├── PacketGenerator.h
+│    ├── PacketAnalyzer.h
+│    ├── Logger.h
+│    └── Server.h
+└── tests/
