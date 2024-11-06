@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2024-11-05T21:44:49.360260" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2024-11-06T14:54:00.125836" rpa="false" schemaversion="5">
 <suite id="s1" name="NetworkForensicsToolTests" source="C:\Users\dasri\Desktop\NetworkForensicsTool\tests\NetworkForensicsToolTests.robot">
-<test id="s1-t1" name="Application Should Run Successfully" line="11">
+<test id="s1-t1" name="Application Should Run Successfully" line="13">
 <kw name="Run Process" owner="Process">
-<msg time="2024-11-05T21:44:49.391911" level="INFO">Starting process:
+<msg time="2024-11-06T14:54:00.160638" level="INFO">Starting process:
 ../build/Debug/NetworkForensicsTool.exe</msg>
-<msg time="2024-11-05T21:44:49.407549" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-11-05T21:44:51.606163" level="INFO">Process completed.</msg>
-<msg time="2024-11-05T21:44:51.606163" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-11-06T14:54:00.165185" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-11-06T14:54:02.344579" level="INFO">Process completed.</msg>
+<msg time="2024-11-06T14:54:02.344579" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>${EXECUTABLE}</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-11-05T21:44:49.391911" elapsed="2.214252"/>
+<status status="PASS" start="2024-11-06T14:54:00.159681" elapsed="2.184898"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-11-05T21:44:51.606163" level="INFO">Argument types are:
+<msg time="2024-11-06T14:54:02.348318" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result.rc}</arg>
 <arg>0</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-11-05T21:44:51.606163" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:02.344579" elapsed="0.003739"/>
 </kw>
 <kw name="Should Not Contain" owner="BuiltIn">
 <arg>${result.stdout}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" start="2024-11-05T21:44:51.606163" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:02.348318" elapsed="0.000813"/>
 </kw>
 <doc>Test if the server application runs without errors.</doc>
-<status status="PASS" start="2024-11-05T21:44:49.391911" elapsed="2.214252"/>
+<status status="PASS" start="2024-11-06T14:54:00.159681" elapsed="2.189450"/>
 </test>
-<test id="s1-t2" name="Should Detect Malicious Packets" line="18">
+<test id="s1-t2" name="Should Detect Malicious Packets" line="20">
 <kw name="Run Process" owner="Process">
-<msg time="2024-11-05T21:44:51.606163" level="INFO">Starting process:
+<msg time="2024-11-06T14:54:02.349131" level="INFO">Starting process:
 ../build/Debug/NetworkForensicsTool.exe</msg>
-<msg time="2024-11-05T21:44:51.621790" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-11-05T21:44:53.837351" level="INFO">Process completed.</msg>
-<msg time="2024-11-05T21:44:53.837351" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-11-06T14:54:02.365093" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-11-06T14:54:04.498859" level="INFO">Process completed.</msg>
+<msg time="2024-11-06T14:54:04.498859" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>${EXECUTABLE}</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-11-05T21:44:51.606163" elapsed="2.231188"/>
+<status status="PASS" start="2024-11-06T14:54:02.349131" elapsed="2.149728"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-05T21:44:53.837351" level="INFO">${output} = Malicious Packet Detected: Connection 73: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:51 2024
-Received Packet: Connection 40: normal packet data | Size: 33 bytes | Timestamp: ...</msg>
+<msg time="2024-11-06T14:54:04.498859" level="INFO">${output} = Malicious Packet Detected: Connection 76: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:02 2024
+Received Packet: Connection 30: normal packet data | Size: 33 bytes | Timestamp: ...</msg>
 <var>${output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-11-05T21:44:53.837351" level="INFO">${malicious_packets} = ['Malicious Packet Detected: Connection 73: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:51 2024', 'Malicious Packet Detected: Connection 3: malicious attack data | Size: 35 by...</msg>
+<msg time="2024-11-06T14:54:04.498859" level="INFO">${malicious_packets} = ['Malicious Packet Detected: Connection 76: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:02 2024', 'Malicious Packet Detected: Connection 64: malicious attack data | Size: 36 b...</msg>
 <var>${malicious_packets}</var>
 <arg>[line for line in '''${output}'''.splitlines() if 'Malicious Packet Detected' in line]</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${malicious_packets}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="0.000000"/>
 </kw>
 <kw name="Log Many" owner="BuiltIn">
-<msg time="2024-11-05T21:44:53.837351" level="INFO">['Malicious Packet Detected: Connection 73: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:51 2024', 'Malicious Packet Detected: Connection 3: malicious attack data | Size: 35 bytes | Timestamp: Tue Nov  5 21:44:52 2024', 'Malicious Packet Detected: Connection 97: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:52 2024', 'Malicious Packet Detected: Connection 51: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:52 2024']</msg>
+<msg time="2024-11-06T14:54:04.498859" level="INFO">['Malicious Packet Detected: Connection 76: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:02 2024', 'Malicious Packet Detected: Connection 64: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:02 2024', 'Malicious Packet Detected: Connection 72: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:03 2024', 'Malicious Packet Detected: Connection 41: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:03 2024', 'Malicious Packet Detected: Connection 57: malicious attack data | Size: 36 bytes | Timestamp: Wed Nov  6 14:54:04 2024', 'Malicious Packet Detected: Connection 0: malicious attack data | Size: 35 bytes | Timestamp: Wed Nov  6 14:54:04 2024']</msg>
 <arg>${malicious_packets}</arg>
 <doc>Logs the given messages as separate entries using the INFO level.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="0.000000"/>
 </kw>
 <doc>Check that malicious packets are correctly detected in the output.</doc>
-<status status="PASS" start="2024-11-05T21:44:51.606163" elapsed="2.231188"/>
+<status status="PASS" start="2024-11-06T14:54:02.349131" elapsed="2.149728"/>
 </test>
-<test id="s1-t3" name="Should Display Packet Info Correctly" line="27">
+<test id="s1-t3" name="Should Display Packet Info Correctly" line="29">
 <kw name="Run Process" owner="Process">
-<msg time="2024-11-05T21:44:53.837351" level="INFO">Starting process:
+<msg time="2024-11-06T14:54:04.498859" level="INFO">Starting process:
 ../build/Debug/NetworkForensicsTool.exe</msg>
-<msg time="2024-11-05T21:44:53.852970" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-11-05T21:44:56.068460" level="INFO">Process completed.</msg>
-<msg time="2024-11-05T21:44:56.068460" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-11-06T14:54:04.509890" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-11-06T14:54:06.629952" level="INFO">Process completed.</msg>
+<msg time="2024-11-06T14:54:06.629952" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>${EXECUTABLE}</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="2.231109"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="2.131093"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-11-05T21:44:56.068460" level="INFO">${output} = Received Packet: Connection 70: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:53 2024
-Received Packet: Connection 30: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21...</msg>
+<msg time="2024-11-06T14:54:06.629952" level="INFO">${output} = Received Packet: Connection 73: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024
+Received Packet: Connection 21: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14...</msg>
 <var>${output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-11-05T21:44:56.068460" level="INFO">${lines} = ['Received Packet: Connection 70: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:53 2024', 'Received Packet: Connection 30: normal packet data | Size: 33 bytes | Timestamp: Tue Nov ...</msg>
+<msg time="2024-11-06T14:54:06.629952" level="INFO">${lines} = ['Received Packet: Connection 73: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024', 'Received Packet: Connection 21: normal packet data | Size: 33 bytes | Timestamp: Wed Nov ...</msg>
 <var>${lines}</var>
 <arg>${output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -106,209 +106,209 @@ Received Packet: Connection 30: normal packet data | Size: 33 bytes | Timestamp:
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 70: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:53 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 73: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 30: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:53 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 21: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 78: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 74: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 5: normal packet data | Size: 32 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 9: normal packet data | Size: 32 bytes | Timestamp: Wed Nov  6 14:54:04 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 6: malicious attack data | Size: 35 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 24: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:04 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 56: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 37: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 38: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 11: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 97: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 81: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 11: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 8: normal packet data | Size: 32 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 84: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 16: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 61: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:54 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 92: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 13: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 11: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 46: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Malicious Packet Detected: Connection 6: malicious attack data | Size: 35 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 88: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 8: normal packet data | Size: 32 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 94: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 75: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:05 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 95: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 7: normal packet data | Size: 32 bytes | Timestamp: Wed Nov  6 14:54:06 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Malicious Packet Detected: Connection 13: malicious attack data | Size: 36 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 59: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:06 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 19: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 51: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:06 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 78: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 1: normal packet data | Size: 32 bytes | Timestamp: Wed Nov  6 14:54:06 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${line}</arg>
 <arg>.*Packet.*Size: [0-9]+ bytes.*Timestamp:.*</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </kw>
-<var name="${line}">Received Packet: Connection 49: normal packet data | Size: 33 bytes | Timestamp: Tue Nov  5 21:44:55 2024</var>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<var name="${line}">Received Packet: Connection 39: normal packet data | Size: 33 bytes | Timestamp: Wed Nov  6 14:54:06 2024</var>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </iter>
 <var>${line}</var>
 <value>@{lines}</value>
-<status status="PASS" start="2024-11-05T21:44:56.068460" elapsed="0.000000"/>
+<status status="PASS" start="2024-11-06T14:54:06.629952" elapsed="0.000000"/>
 </for>
 <doc>Validate that packet details (size and timestamp) are present for each packet.</doc>
-<status status="PASS" start="2024-11-05T21:44:53.837351" elapsed="2.231109"/>
+<status status="PASS" start="2024-11-06T14:54:04.498859" elapsed="2.131093"/>
 </test>
-<status status="PASS" start="2024-11-05T21:44:49.360260" elapsed="6.708200"/>
+<status status="PASS" start="2024-11-06T14:54:00.125836" elapsed="6.504116"/>
 </suite>
 <statistics>
 <total>
